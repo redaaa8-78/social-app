@@ -5,8 +5,6 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\LikeController;
 
-
-
 Route::get('/register', [AuthController::class, 'register']);
 Route::post('/register', [AuthController::class, 'store']);
 
@@ -14,12 +12,6 @@ Route::get('/login', [AuthController::class, 'login']);
 Route::post('/login', [AuthController::class, 'authenticate']);
 
 Route::get('/logout', [AuthController::class, 'logout']);
-
-/*
-|--------------------------------------------------------------------------
-| Routes protégées (utilisateur connecté)
-|--------------------------------------------------------------------------
-*/
 
 Route::middleware(['checkauth'])->group(function () {
 
